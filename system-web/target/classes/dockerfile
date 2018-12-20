@@ -1,0 +1,10 @@
+FROM openjdk:8
+MAINTAINER DAOSHU
+LABEL app="PLATFORM" version="2.0.0-SNAPSHOT" by="DAOSHU"
+VOLUME /tmp
+ARG JAR_FILE
+ADD daoshu-platform.jar /app/app.jar
+COPY application.yml /app/application.yml
+WORKDIR /app/
+EXPOSE 8090
+ENTRYPOINT ["java","-jar","./app.jar"]
